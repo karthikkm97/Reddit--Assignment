@@ -88,8 +88,13 @@ export default function Feed({ searchQuery }) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center text-sm text-gray-600">
                   <span className="mr-2">Posted by</span>
-                  <img
-                    src={post.sr_detail?.icon_img || 'https://via.placeholder.com/20'}
+                 <img
+                    src={
+                      post.sr_detail?.icon_img &&
+                      post.sr_detail.icon_img.startsWith("http")
+                        ? post.sr_detail.icon_img
+                        : "https://via.placeholder.com/20"
+                    }
                     alt="Author"
                     className="w-6 h-6 rounded-full mr-2"
                   />
